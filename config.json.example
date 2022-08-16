@@ -1,0 +1,23 @@
+{
+    "BOT_TOKEN": "",
+    "DEFAULT_GUILD_ID": 123456789,
+    "embeds": {
+        "footer": "My Awesome Bot - All rights reserved",
+        "colors": {
+            "primary": "0x1064fe",
+            "error": "0xf12a39",
+            "success": "0x28a745",
+            "warning": "0xffc107"
+        },
+        "thumbnail": "https://link.to/some/logo"
+    },
+    "whitelist": [
+        123456789
+    ],
+    "tickets": {
+        "staff_role": 123456789,
+        "category": 123456789,
+        "panel_id": 123456789,
+        "panel_channel_id": 123456789
+    }
+}

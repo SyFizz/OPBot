@@ -1,0 +1,76 @@
+{
+    "error": "Erreur",
+    "success": "Commandé réussie",
+    "no_permission": "Désolé {user}, vous n'avez pas la permission d'exécuter cette commande.",
+    "whitelist": {
+        "title": "Liste blanche",
+        "add": {
+            "description": "Permet d'ajouter un utilisateur aux administrateurs",
+            "success": "Utilisateur {user} ajouté à la liste blanche.",
+            "exists": "L'utilisateur {user} est déjà dans la liste blanche.",
+            "failure": "L'utilisateur {user} n'a pas pu être ajouté à la liste blanche.\n Erreur : {error}"
+        },
+        "remove": {
+            "description": "Permet de supprimer un utilisateur des administrateurs",
+            "success": "Utilisateur {user} supprimé de la liste blanche.",
+            "not_found": "L'utilisateur {user} n'est pas dans la liste blanche.",
+            "failure": "L'utilisateur {user} n'a pas pu être supprimé de la liste blanche.\n Erreur : {error}"
+        }
+    },
+    "reload": {
+        "title": "Rechargement de la configuration",
+        "description": "Recharge la configuration du bot",
+        "success": "La configuration du bot a été rechargée avec succès !",
+        "failure": "La configuration du bot n'a pas pu être rechargée.\n Erreur : {error}"
+    },
+    "stop": {
+        "title": "Arrêt du bot",
+        "description": "Arrête le bot",
+        "success": "Le bot a été arrêté avec succès !",
+        "failure": "Le bot n'a pas pu être arrêté.\n Erreur : {error}"
+    },
+    "settings": {
+        "menu":{
+            "description": "Choisissez une option"
+        }
+    },
+    "tickets": {
+        "panel": {
+            "title": "Création de tickets",
+            "description": [
+            "Un problème avec un de vos services ? Une question ?",
+            "",
+            "",
+            "`👋` Vous avez besoin d'ouvrir un ticket pour une raison quelconque ?",
+            "",
+            "`📧` Choisissez la catégorie de votre ticket ci-dessous pour contacter notre équipe !",
+            "",
+            "",
+            "Au plaisir de vous revoir sur nos plateformes !"
+            ],
+            "choicePlaceholder": "Choisissez une catégorie",
+            "categories":{
+                "technical": {
+                    "title": "Problème technique",
+                    "description": "Choisissez cette option si vous rencontrez des difficultés techniques avec votre service.",
+                    "emoji": "🔧",
+                    "value": "technical"
+                },
+                "commercial": {
+                    "title": "Problème commercial",
+                    "description": "Choisissez cette option si vous rencontrez un problème de facturation ou de paiement.",
+                    "emoji": "💰",
+                    "value": "commercial"
+                },
+                "other": {
+                    "title": "Autre",
+                    "description": "Choisissez cette option si vous rencontrez un problème qui n'est pas dans les autres catégories.",
+                    "emoji": "🤔",
+                    "value": "other"
+                }
+            }
+        },
+        "published": "Le message a été publié avec succès !",
+        "error": "Une erreur est survenue lors de l'interaction.\n Erreur : {error}"
+    }
+}
