@@ -1,4 +1,5 @@
 from random import choices
+from typing_extensions import Required
 from unicodedata import category
 from disnake import Guild
 import interactions
@@ -139,12 +140,55 @@ async def list(ctx: interactions.CommandContext):
         await noPermission(ctx)
 
 
+
+
+@bot.command()
+async def settings(ctx: interactions.CommandContext):
+    pass
+
+@settings.group()
+async def tickets(ctx: interactions.CommandContext):
+    pass
+
+@tickets.subcommand()
+@interactions.option(interactions.OptionType.ROLE, name='role', description=lang['settings']['tickets']['setStaffRole']['optionDescription'], required=True)
+async def set_staff_role(ctx: interactions.CommandContext, role: interactions.Role):
+    """Commande permettant de définir le rôle des membres du staff"""
+    if(ctx.author.id in config['whitelist']):
+        try:
+            config['tickets']['staffRole'] = int(role.id)
+            save_config()
+            await success(ctx,lang['settings']['tickets']['setStaffRole']['success'].replace('{role}', role.mention))
+        except Exception as e:
+            await failure(ctx, lang['settings']['tickets']['setStaffRole']['failure'].replace('{error}', str(e)))
+    else:
+        await noPermission(ctx)
+        
+@tickets.subcommand()
+@interactions.option(interactions.OptionType.CHANNEL, name='category', description=lang['settings']['tickets']['setCategory']['optionDescription'], required=True)
+async def set_category(ctx: interactions.CommandContext, category: interactions.Channel):
+    """Commande permettant de définir la catégorie des tickets"""
+    if(ctx.author.id in config['whitelist']):
+        if(category.type == interactions.ChannelType.GUILD_CATEGORY):
+            try:
+                config['tickets']['category'] = int(category.id)
+                save_config()
+                await success(ctx,lang['settings']['tickets']['setCategory']['success'].replace('{category}', category.mention))
+            except Exception as e:
+                await failure(ctx, lang['settings']['tickets']['setCategory']['failure'].replace('{error}', str(e)))
+        else:
+            await failure(ctx, lang['settings']['tickets']['setCategory']['failure'].replace('{error}', lang['settings']['tickets']['setCategory']['mustBeCategory']))
+    else:
+        await noPermission(ctx)
+
+
 ticketOptions = []
 for category in lang['tickets']['panel']['categories']:
     option = interactions.SelectOption(
             label=lang['tickets']['panel']['categories'][category]['title'],
             value=lang['tickets']['panel']['categories'][category]['value'],
-            description=lang['tickets']['panel']['categories'][category]['description']
+            description=lang['tickets']['panel']['categories'][category]['description'],
+            emoji=interactions.Emoji(name=lang['tickets']['panel']['categories'][category]['emoji'])
         )
     ticketOptions.append(option)
 ticketChoice = interactions.SelectMenu(
@@ -155,13 +199,10 @@ ticketChoice = interactions.SelectMenu(
     disabled=False,
     options=ticketOptions
 )
-
-
-
-    
+  
 @bot.component("ticketChoice")
-async def select_response(ctx: interactions.ComponentContext):
-    await ctx.send(ctx.value)
+async def ticketCreation(ctx: interactions.ComponentContext, values: list):
+    await ctx.send(str(values))
     
 
 

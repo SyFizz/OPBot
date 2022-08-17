@@ -32,6 +32,19 @@
     "settings": {
         "menu":{
             "description": "Choisissez une option"
+        },
+        "tickets":{
+            "setStaffRole":{
+                "optionDescription": "Sélectionnez le rôle d'accès aux tickets",
+                "success": "Le rôle d'accès aux tickets a bien été défini à {role} !",
+                "failure": "Le rôle n'a pas pu être modifié.\n Erreur : {error}"
+            },
+            "setCategory":{
+                "optionDescription": "Sélectionnez la catégorie des tickets",
+                "success": "Les tickets seront désormais créés dans la catégorie {category} !",
+                "failure": "La catégorie n'a pas pu être modifiée.\n Erreur : {error}",
+                "mustBeCategory": "Vous avez mentionné un salon vocal ou textuel au lieu d'une catégorie."
+            }
         }
     },
     "tickets": {
@@ -41,7 +54,7 @@
             "Un problème avec un de vos services ? Une question ?",
             "",
             "",
-            "`👋` Vous avez besoin d'ouvrir un ticket pour une raison quelconque ?",
+            "`👋` Vous avez besoin d'aide pour une raison quelconque ?",
             "",
             "`📧` Choisissez la catégorie de votre ticket ci-dessous pour contacter notre équipe !",
             "",
@@ -52,19 +65,19 @@
             "categories":{
                 "technical": {
                     "title": "Problème technique",
-                    "description": "Choisissez cette option si vous rencontrez des difficultés techniques avec votre service.",
+                    "description": "En cas de difficultés techniques avec vos services.",
                     "emoji": "🔧",
                     "value": "technical"
                 },
                 "commercial": {
                     "title": "Problème commercial",
-                    "description": "Choisissez cette option si vous rencontrez un problème de facturation ou de paiement.",
+                    "description": "En cas de problème de facturation ou de paiement.",
                     "emoji": "💰",
                     "value": "commercial"
                 },
                 "other": {
                     "title": "Autre",
-                    "description": "Choisissez cette option si vous rencontrez un problème qui n'est pas dans les autres catégories.",
+                    "description": "Pour toute autre demande.",
                     "emoji": "🤔",
                     "value": "other"
                 }
